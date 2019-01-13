@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_10"
+    android:background="@drawable/shape_bg_home_page_goods_item"
+    android:orientation="vertical">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/goods_pzsh_img"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_120"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/dp_10"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:id="@+id/goods_pzsh_title"
+        android:layout_width="@dimen/dp_150"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:lines="1"
+        android:singleLine="true"
+        android:text="学到无法自拔，帅到无可救药"
+        android:textColor="#666666"
+        android:textSize="@dimen/sp_12" />
+
+    <TextView
+        android:id="@+id/goods_pzsh_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="价格"
+        android:textColor="#ff0000"
+        android:textSize="@dimen/sp_14" />
+</LinearLayout>

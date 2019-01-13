@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "small.com.small_demo"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    /*魅族Banner*/
+    implementation 'com.github.pinguo-zhouwei:MZBannerView:v2.0.2'
+    /*eventBus */
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    /*Brvah-recycler增强*/
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+    /*fresco图片框架*/
+    implementation 'com.facebook.fresco:fresco:1.11.0'
+    /*dagger2解耦*/
+    implementation 'com.google.dagger:dagger:2.11'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+    /*OkGo网络封装*/
+    implementation 'com.lzy.net:okgo:3.0.4'
+    /*butterknife找控件*/
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    /*recyclerview展示*/
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    //*ZXing二维码扫描*/
+    implementation 'cn.bingoogolapple:bga-qrcode-zxing:1.2.1'
+    /*gson解析*/
+    implementation 'com.google.code.gson:gson:2.2.4'
+    /*okhttp网络请求*/
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+    /*glide图片工具*/
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}

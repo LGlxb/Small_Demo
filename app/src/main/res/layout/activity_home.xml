@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/home_fragment_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        ></android.support.v4.view.ViewPager>
+
+    <RadioGroup
+        android:id="@+id/rg_home"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_100"
+        android:background="@drawable/bg_bottom_rectangle"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_home_page"
+            android:layout_width="@dimen/dp_35"
+            android:layout_height="@dimen/dp_37"
+            android:layout_margin="@dimen/dp_20"
+            android:layout_weight="1"
+            android:background="@drawable/sel_home_page"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center" />
+
+        <RadioButton
+            android:id="@+id/rb_home_ufo"
+            android:layout_width="@dimen/dp_35"
+            android:layout_height="@dimen/dp_37"
+            android:layout_margin="@dimen/dp_20"
+            android:layout_weight="1"
+            android:background="@drawable/sel_home_circle"
+            android:button="@null"
+            android:gravity="center" />
+
+        <RadioButton
+            android:id="@+id/rb_home_cart"
+            android:layout_width="@dimen/dp_70"
+            android:layout_height="@dimen/dp_70"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_weight="1"
+            android:background="@drawable/car_t"
+            android:button="@null"
+            android:gravity="center" />
+
+        <RadioButton
+            android:id="@+id/rb_home_bill"
+            android:layout_width="@dimen/dp_35"
+            android:layout_height="@dimen/dp_37"
+            android:layout_margin="@dimen/dp_20"
+            android:layout_weight="1"
+            android:background="@drawable/sel_home_order"
+            android:button="@null"
+            android:gravity="center" />
+
+
+        <RadioButton
+            android:id="@+id/rb_home_mine"
+            android:layout_width="@dimen/dp_35"
+            android:layout_height="@dimen/dp_37"
+            android:layout_margin="@dimen/dp_20"
+            android:layout_weight="1"
+            android:background="@drawable/sel_home_my"
+            android:button="@null" />
+
+    </RadioGroup>
+</LinearLayout>
