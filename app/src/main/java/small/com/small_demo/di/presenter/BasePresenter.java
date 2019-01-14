@@ -18,6 +18,7 @@ public abstract class BasePresenter<V extends IView> {
     protected abstract void initModel();
 
     void onDestroy() {
+        vSoftReference.clear();
         view = null;  //减少内存溢出时调用
     }
 }

@@ -22,6 +22,8 @@ import small.com.small_demo.R;
 import small.com.small_demo.bean.HomeBannerBean;
 import small.com.small_demo.bean.HomeGoodsBean;
 import small.com.small_demo.bean.LoginBean;
+import small.com.small_demo.bean.PopButtomBean;
+import small.com.small_demo.bean.PopTopBean;
 import small.com.small_demo.bean.RegisterBean;
 import small.com.small_demo.di.core.DataCall;
 import small.com.small_demo.di.presenter.RegisterPresenter;
@@ -95,6 +97,16 @@ public class RegisterActivity extends AppCompatActivity implements DataCall {
 
     @Override
     public void onLogin(LoginBean loginBean) {
+
+    }
+
+    @Override
+    public void onPopRecyOne(PopTopBean popTopBean) {
+
+    }
+
+    @Override
+    public void onPopRecyTwo(PopButtomBean popButtomBean) {
 
     }
 

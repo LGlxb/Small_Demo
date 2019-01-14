@@ -20,10 +20,13 @@
         android:layout_width="@dimen/dp_150"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:ellipsize="end"
         android:lines="1"
+        android:maxEms="8"
         android:singleLine="true"
         android:text="学到无法自拔，帅到无可救药"
         android:textColor="#666666"
+
         android:textSize="@dimen/sp_12" />
 
     <TextView

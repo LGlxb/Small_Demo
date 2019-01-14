@@ -1,6 +1,7 @@
 package small.com.small_demo.ui.fragments;
 
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,8 +14,11 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -36,11 +40,15 @@ import small.com.small_demo.adapters.QualityLiveAdapter;
 import small.com.small_demo.bean.HomeBannerBean;
 import small.com.small_demo.bean.HomeGoodsBean;
 import small.com.small_demo.bean.LoginBean;
+import small.com.small_demo.bean.PopButtomBean;
+import small.com.small_demo.bean.PopTopBean;
 import small.com.small_demo.bean.RegisterBean;
 import small.com.small_demo.di.core.DataCall;
 import small.com.small_demo.di.presenter.FashionPresenter;
 import small.com.small_demo.di.presenter.HomeBannerPresenter;
 import small.com.small_demo.di.presenter.HotGoodsPresenter;
+import small.com.small_demo.di.presenter.PopButtomPresenter;
+import small.com.small_demo.di.presenter.PopTopPresenter;
 import small.com.small_demo.di.presenter.QualityLivePresenter;
 
 public class Fragment_home extends Fragment implements DataCall {
@@ -72,6 +80,10 @@ public class Fragment_home extends Fragment implements DataCall {
     private HotGoodsPresenter hotGoodsPresenter;
     private FashionPresenter fashionPresenter;
     private QualityLivePresenter qualityLivePresenter;
+    private PopTopPresenter popTopPresenter;
+    private PopButtomPresenter popButtomPresenter;
+    private String firstCategoryId = "1001002";
+    private View popview;
 
     @Nullable
     @Override
@@ -79,6 +91,7 @@ public class Fragment_home extends Fragment implements DataCall {
                              @Nullable Bundle savedInstanceState) {
         homeView = inflater.inflate(R.layout.fragment_home, container, false);
         unbinder = ButterKnife.bind(this, homeView);
+        popview = View.inflate(getActivity(), R.layout.item_pop, null);
         //实例化P层
         homeBannerPresenter = new HomeBannerPresenter(this);
         homeBannerPresenter.homeBanner();
@@ -88,6 +101,10 @@ public class Fragment_home extends Fragment implements DataCall {
         fashionPresenter.hotGoods();
         qualityLivePresenter = new QualityLivePresenter(this);
         qualityLivePresenter.qualityLive();
+        popTopPresenter = new PopTopPresenter(this);
+        popTopPresenter.popTop();
+        popButtomPresenter = new PopButtomPresenter(this);
+        popButtomPresenter.popTop(firstCategoryId);
         return homeView;
     }
 
@@ -114,6 +131,25 @@ public class Fragment_home extends Fragment implements DataCall {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.home_img_menu:
+                PopupWindow popupWindow = new PopupWindow(popview, 800, 200,
+                        true);
+                popupWindow.setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
+                popupWindow.setWidth(WindowManager.LayoutParams.MATCH_PARENT);
+                popupWindow.setOutsideTouchable(true);
+                popupWindow.setBackgroundDrawable(new ColorDrawable(0x000000));
+                popupWindow.showAsDropDown(homeImgMenu);
+                //TopRecy
+                RecyclerView topRecy = popview.findViewById(R.id.home_top_recycler);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+                linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+                topRecy.setLayoutManager(linearLayoutManager);
+                topRecy.setBackgroundColor(0x88000000);
+
+                RecyclerView bottonRecycler = popview.findViewById(R.id.home_botton_recycler);
+                LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(getActivity());
+                linearLayoutManager1.setOrientation(LinearLayoutManager.HORIZONTAL);
+                bottonRecycler.setLayoutManager(linearLayoutManager1);
+                bottonRecycler.setBackgroundColor(0x77000000);
                 break;
             case R.id.home_img_search:
                 break;
@@ -141,6 +177,19 @@ public class Fragment_home extends Fragment implements DataCall {
 
     @Override
     public void onLogin(LoginBean loginBean) {
+
+    }
+
+    @Override
+    public void onPopRecyOne(PopTopBean popTopBean) {
+//        List<PopTopBean.ResultBean> topResult = popTopBean.getResult(); //布局管理
+//        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 5);
+//        homeQLifeGoods.setLayoutManager(gridLayoutManager);
+
+    }
+
+    @Override
+    public void onPopRecyTwo(PopButtomBean popButtomBean) {
 
     }
 

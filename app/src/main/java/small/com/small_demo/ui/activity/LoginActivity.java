@@ -24,6 +24,8 @@ import small.com.small_demo.R;
 import small.com.small_demo.bean.HomeBannerBean;
 import small.com.small_demo.bean.HomeGoodsBean;
 import small.com.small_demo.bean.LoginBean;
+import small.com.small_demo.bean.PopButtomBean;
+import small.com.small_demo.bean.PopTopBean;
 import small.com.small_demo.bean.RegisterBean;
 import small.com.small_demo.di.core.DataCall;
 import small.com.small_demo.di.presenter.LoginPresenter;
@@ -140,6 +142,16 @@ public class LoginActivity extends AppCompatActivity implements DataCall {
         edit.commit();
 
         startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+
+    }
+
+    @Override
+    public void onPopRecyOne(PopTopBean popTopBean) {
+
+    }
+
+    @Override
+    public void onPopRecyTwo(PopButtomBean popButtomBean) {
 
     }
 
