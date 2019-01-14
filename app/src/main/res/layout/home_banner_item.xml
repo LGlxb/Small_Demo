@@ -6,5 +6,9 @@
     <ImageView
         android:id="@+id/Home_BannerImg"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_150" />
+        android:layout_height="@dimen/dp_150"
+        android:layout_marginLeft="@dimen/dp_3"
+        android:layout_marginRight="@dimen/dp_3"
+        android:scaleType="centerCrop" />
+
 </LinearLayout>
