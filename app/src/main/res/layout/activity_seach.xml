@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.SearchActivity">
+    <RelativeLayout
+        android:layout_marginTop="36dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
+        <ImageView
+            android:id="@+id/s1"
+            android:layout_width="@dimen/dp_18"
+            android:layout_height="@dimen/dp_27"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/common_nav_btn_menu_n"/>
+
+        <EditText
+            android:id="@+id/search_edit"
+            android:layout_width="@dimen/dp_350"
+            android:layout_height="@dimen/dp_30"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="@dimen/dp_35"
+            android:layout_marginRight="@dimen/dp_20"
+            android:background="@drawable/edit_shape"
+            android:hint="请输入您想要搜索的商品" />
+
+        <TextView
+            android:id="@+id/search_text"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sp_20"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/dp_35"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:text="搜索" />
+    </RelativeLayout>
+
+</LinearLayout>
