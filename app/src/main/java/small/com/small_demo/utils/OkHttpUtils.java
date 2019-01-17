@@ -77,6 +77,53 @@ public class OkHttpUtils {
                 .build();
     }
 
+    //异步put请求
+    public void goPut(String url, Map<String, String> map, final IOKHttpUtilsCallBack
+            iokHttpUtilsCallBack) {
+        FormBody builder = new FormBody.Builder().build();
+        Request request = new Request.Builder()
+                .url(url)
+                .put(builder)
+                .build();
+        Call call = httpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                if (iokHttpUtilsCallBack == null) {
+                    iokHttpUtilsCallBack.onFailure(e.getMessage());
+                }
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response != null && response.isSuccessful()) {
+                    final String json = response.body().string();
+                    if (iokHttpUtilsCallBack != null) {
+                        //切换到主线程
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                iokHttpUtilsCallBack.onResponse(json);
+                            }
+                        });
+
+                    }
+                } else {
+                    if (iokHttpUtilsCallBack != null) {
+                        //切换到主线程
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                iokHttpUtilsCallBack.onFailure("网络异常");
+                            }
+                        });
+                    }
+                }
+            }
+
+        });
+    }
+
     //异步get请求
     public void doGet(String url, final IOKHttpUtilsCallBack iokHttpUtilsCallBack) {
         Request request = new Request.Builder().url(url).build();
@@ -122,18 +169,10 @@ public class OkHttpUtils {
     public void doPost(String url, Map<String, String> map, final IOKHttpUtilsCallBack
             iokHttpUtilsCallBack) {
         FormBody.Builder builder = new FormBody.Builder();
-//        for (Map.Entry<String, String> entry : map.entrySet()) {
-//            builder.add(entry.getKey(), entry.getValue());
-//            Log.d("OkHttpUtils", entry.getKey() + "++++logkey");
-//            Log.d("OkHttpUtils", entry.getValue() + "+++++logvalue");
-//        }
         String phone = map.get("phone");
         String pwd = map.get("pwd");
         builder.add(phone, pwd);
-        Log.d("OkHttpUtils", phone.toString() + "++++postkey");
-        Log.d("OkHttpUtils", pwd.toString() + "++++postkey");
         FormBody formBody = builder.build();
-        Log.d("OkHttpUtils", "formBody:" + formBody + "++++formbody");
         Request request = new Request.Builder().post(formBody).url(url).build();
         Call call = httpClient.newCall(request);
         call.enqueue(new Callback() {
@@ -145,7 +184,6 @@ public class OkHttpUtils {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            Log.i("ok1111", e.getMessage());
                             iokHttpUtilsCallBack.onFailure(e.getMessage());
                         }
                     });
@@ -154,12 +192,7 @@ public class OkHttpUtils {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-//                String json = response.body().string();
-//                Log.d("OkHttpUtils", json.toString() + "json+++++");
-//                if (iokHttpUtilsCallBack != null) {
-//                    //切换到主线程
-//                    iokHttpUtilsCallBack.onResponse(json);
-//                }
+
                 if (response != null && response.isSuccessful()) {
                     final String json = response.body().string();
                     if (iokHttpUtilsCallBack != null) {

@@ -12,7 +12,7 @@ public class HomeBannerModel {
 
     public void homeBanner( final BannerModelCallBack bannerModelCallBack) {
 
-        String Banner_Url = "http://172.17.8.100/small/commodity/v1/bannerShow";
+        String Banner_Url = "http://mobile.bwstudent.com/small/commodity/v1/bannerShow";
         OkHttpUtils okHttpUtils = OkHttpUtils.getOkHttpUtils();
         okHttpUtils.doGet(Banner_Url, new OkHttpUtils.IOKHttpUtilsCallBack() {
             @Override

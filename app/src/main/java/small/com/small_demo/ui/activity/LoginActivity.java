@@ -20,7 +20,6 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import small.com.small_demo.R;
 import small.com.small_demo.bean.HomeBannerBean;
 import small.com.small_demo.bean.HomeGoodsBean;
 import small.com.small_demo.bean.LoginBean;
@@ -29,6 +28,7 @@ import small.com.small_demo.bean.PopTopBean;
 import small.com.small_demo.bean.RegisterBean;
 import small.com.small_demo.di.core.DataCall;
 import small.com.small_demo.di.presenter.LoginPresenter;
+import small.com.small_demo.R;
 
 public class LoginActivity extends AppCompatActivity implements DataCall {
 

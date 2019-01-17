@@ -1,6 +1,7 @@
 package small.com.small_demo.ui.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -36,6 +37,8 @@ import butterknife.Unbinder;
 import small.com.small_demo.R;
 import small.com.small_demo.adapters.FshionAdapter;
 import small.com.small_demo.adapters.HotGoodsAdapter;
+import small.com.small_demo.adapters.PopButtomAdapter;
+import small.com.small_demo.adapters.PopTopAdapter;
 import small.com.small_demo.adapters.QualityLiveAdapter;
 import small.com.small_demo.bean.HomeBannerBean;
 import small.com.small_demo.bean.HomeGoodsBean;
@@ -50,12 +53,12 @@ import small.com.small_demo.di.presenter.HotGoodsPresenter;
 import small.com.small_demo.di.presenter.PopButtomPresenter;
 import small.com.small_demo.di.presenter.PopTopPresenter;
 import small.com.small_demo.di.presenter.QualityLivePresenter;
+import small.com.small_demo.ui.activity.SearchActivity;
 
 public class Fragment_home extends Fragment implements DataCall {
 
     @BindView(R.id.home_img_menu)
     ImageButton homeImgMenu;
-
     @BindView(R.id.home_img_search)
     ImageButton homeImgSearch;
     @BindView(R.id.home_page_banner)
@@ -84,6 +87,7 @@ public class Fragment_home extends Fragment implements DataCall {
     private PopButtomPresenter popButtomPresenter;
     private String firstCategoryId = "1001002";
     private View popview;
+    private PopupWindow popupWindow;
 
     @Nullable
     @Override
@@ -127,31 +131,25 @@ public class Fragment_home extends Fragment implements DataCall {
         ButterKnife.bind(this, homeView);
     }
 
-    @OnClick({R.id.home_img_menu, R.id.home_img_search})
+    @OnClick({R.id.home_edit_search, R.id.home_img_menu, R.id.home_img_search})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.home_img_menu:
-                PopupWindow popupWindow = new PopupWindow(popview, 800, 200,
+                Toast.makeText(getActivity(), "点击了menu", Toast.LENGTH_SHORT).show();
+                popview = View.inflate(getActivity(), R.layout.item_pop, null);
+                popupWindow = new PopupWindow(popview, 800, 200,
                         true);
                 popupWindow.setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
                 popupWindow.setWidth(WindowManager.LayoutParams.MATCH_PARENT);
                 popupWindow.setOutsideTouchable(true);
                 popupWindow.setBackgroundDrawable(new ColorDrawable(0x000000));
                 popupWindow.showAsDropDown(homeImgMenu);
-                //TopRecy
-                RecyclerView topRecy = popview.findViewById(R.id.home_top_recycler);
-                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-                linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-                topRecy.setLayoutManager(linearLayoutManager);
-                topRecy.setBackgroundColor(0x88000000);
-
-                RecyclerView bottonRecycler = popview.findViewById(R.id.home_botton_recycler);
-                LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(getActivity());
-                linearLayoutManager1.setOrientation(LinearLayoutManager.HORIZONTAL);
-                bottonRecycler.setLayoutManager(linearLayoutManager1);
-                bottonRecycler.setBackgroundColor(0x77000000);
                 break;
             case R.id.home_img_search:
+                startActivity(new Intent(getActivity(), SearchActivity.class));
+                break;
+            case R.id.home_edit_search:
+                startActivity(new Intent(getActivity(), SearchActivity.class));
                 break;
         }
     }
@@ -180,17 +178,40 @@ public class Fragment_home extends Fragment implements DataCall {
 
     }
 
+    //Todo
     @Override
     public void onPopRecyOne(PopTopBean popTopBean) {
-//        List<PopTopBean.ResultBean> topResult = popTopBean.getResult(); //布局管理
-//        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 5);
-//        homeQLifeGoods.setLayoutManager(gridLayoutManager);
+        List<PopTopBean.ResultBean> result = popTopBean.getResult();
+        //TopRecy
+        RecyclerView topRecy = popview.findViewById(R.id.home_top_recycler);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        topRecy.setLayoutManager(linearLayoutManager);
+        topRecy.setBackgroundColor(0x88000000);
+        //设置适配器
+        PopTopAdapter popTopAdapter = new PopTopAdapter(R.layout.item_top, result);
+        popTopAdapter.setitemClick(new PopTopAdapter.ItemClick() {
+            @Override
+            public void onItem(int data) {
+                int firstCategoryId = data;
+            }
+        });
+        topRecy.setAdapter(popTopAdapter);
 
     }
 
     @Override
     public void onPopRecyTwo(PopButtomBean popButtomBean) {
-
+        List<PopButtomBean.ResultBean> result = popButtomBean.getResult();
+        //ButtomRecy
+        RecyclerView bottonRecycler = popview.findViewById(R.id.home_botton_recycler);
+        LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(getActivity());
+        linearLayoutManager1.setOrientation(LinearLayoutManager.HORIZONTAL);
+        bottonRecycler.setLayoutManager(linearLayoutManager1);
+        bottonRecycler.setBackgroundColor(0x77000000);
+        //设置适配器
+        PopButtomAdapter popButtomAdapter = new PopButtomAdapter(R.layout.item_botton, result);
+        bottonRecycler.setAdapter(popButtomAdapter);
     }
 
     @Override
