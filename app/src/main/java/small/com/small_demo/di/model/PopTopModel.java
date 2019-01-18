@@ -1,5 +1,7 @@
 package small.com.small_demo.di.model;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 
 import small.com.small_demo.bean.HomeGoodsBean;
@@ -9,7 +11,7 @@ import small.com.small_demo.utils.OkHttpUtils;
 public class PopTopModel {
     public void popTopRecy(final TopModelCallBack topModelCallBack) {
 
-        String Login_Url = "http://mobile.bwstudent.com/mall/commodity/v1/findFirstCategory";
+        String Login_Url = "http://mobile.bwstudent.com/small/commodity/v1/findFirstCategory";
         OkHttpUtils okHttpUtils = OkHttpUtils.getOkHttpUtils();
         okHttpUtils.doGet(Login_Url, new OkHttpUtils.IOKHttpUtilsCallBack() {
             @Override
@@ -21,6 +23,8 @@ public class PopTopModel {
             public void onResponse(String json) {
                 PopTopBean popTopBean = new Gson().fromJson(json, PopTopBean.class);
                 if (popTopBean.getStatus().equals("0000")) {
+                    Log.d("PopTopModel", "popTopBean.getResult():" + popTopBean.getResult() +
+                            "++++++00");
                     topModelCallBack.getSuccess(popTopBean);
                 }
             }

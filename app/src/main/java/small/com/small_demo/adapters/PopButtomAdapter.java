@@ -22,14 +22,8 @@ public class PopButtomAdapter extends BaseQuickAdapter<PopButtomBean.ResultBean,
     @Override
     protected void convert(BaseViewHolder helper, PopButtomBean.ResultBean item) {
         helper.setText(R.id.home_pop_bottom_tv,item.getName() );
-//        String images = item.get;
-//        Log.d(TAG, images + "+++images");
-//        String[] split = images.split("\\|");
-//        if (split.length > 0) {
-//            Uri uri = Uri.parse(split[0]);
-//            ((ImageView) helper.getView(R.id.imagethree)).setImageURI(Uri.parse(split[0]));
-//            Log.d(TAG, split[0] + "++++split[0]");
-//        }
+
+
 
     }
 }

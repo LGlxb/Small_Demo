@@ -20,6 +20,10 @@ android {
 }
 
 dependencies {
+
+    //1.1.0 API改动过大，老用户升级需谨慎
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-19'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-19'//没有使用特殊Header，可以不加这行
     /*魅族Banner*/
     implementation 'com.github.pinguo-zhouwei:MZBannerView:v2.0.2'
     /*eventBus */

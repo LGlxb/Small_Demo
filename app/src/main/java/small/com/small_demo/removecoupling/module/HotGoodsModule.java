@@ -1,4 +1,4 @@
-package small.com.small_demo.module;
+package small.com.small_demo.removecoupling.module;
 
 
 import dagger.Module;

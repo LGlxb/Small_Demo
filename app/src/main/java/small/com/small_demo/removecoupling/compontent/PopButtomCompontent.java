@@ -1,10 +1,9 @@
-package small.com.small_demo.compontent;
+package small.com.small_demo.removecoupling.compontent;
 
 
 import dagger.Component;
 import small.com.small_demo.di.presenter.PopButtomPresenter;
-import small.com.small_demo.module.PopButtomModule;
-import small.com.small_demo.module.PopTopModule;
+import small.com.small_demo.removecoupling.module.PopButtomModule;
 
 @Component(modules = PopButtomModule.class)//提供
 public abstract class PopButtomCompontent {

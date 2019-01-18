@@ -1,7 +1,7 @@
-package small.com.small_demo.compontent;
+package small.com.small_demo.removecoupling.compontent;
 import dagger.Component;
 import small.com.small_demo.di.presenter.RegisterPresenter;
-import small.com.small_demo.module.RegisterModule;
+import small.com.small_demo.removecoupling.module.RegisterModule;
 
 @Component(modules = RegisterModule.class)//提供
 public abstract class RegisterCompontent {

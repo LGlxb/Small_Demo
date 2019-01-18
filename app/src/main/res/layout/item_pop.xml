@@ -2,17 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/dp_20"
     android:orientation="vertical"
-    android:padding="10dp"
-    android:layout_marginTop="20dp">
+    android:padding="@dimen/dp_10">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/home_top_recycler"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_2"
+        android:background="#ccc" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/home_botton_recycler"
         android:layout_width="match_parent"
-    android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
-    </LinearLayout>
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+</LinearLayout>

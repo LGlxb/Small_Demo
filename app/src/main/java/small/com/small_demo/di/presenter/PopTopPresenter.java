@@ -1,26 +1,19 @@
 package small.com.small_demo.di.presenter;
 
-import java.util.Map;
-
 import javax.inject.Inject;
 
-import dagger.Module;
-import small.com.small_demo.bean.LoginBean;
 import small.com.small_demo.bean.PopTopBean;
-import small.com.small_demo.compontent.DaggerLoginCompontent;
-import small.com.small_demo.compontent.DaggerPopTopCompontent;
-import small.com.small_demo.di.core.DataCall;
-import small.com.small_demo.di.model.LoginModel;
+import small.com.small_demo.di.core.HomeDataCall;
 import small.com.small_demo.di.model.PopTopModel;
-import small.com.small_demo.module.LoginModule;
-import small.com.small_demo.module.PopTopModule;
+import small.com.small_demo.removecoupling.compontent.DaggerPopTopCompontent;
+import small.com.small_demo.removecoupling.module.PopTopModule;
 
-public class PopTopPresenter extends BasePresenter<DataCall> {
+public class PopTopPresenter extends BasePresenter<HomeDataCall> {
     @Inject
     PopTopModel popTopModel;
 
 
-    public PopTopPresenter(DataCall view) {
+    public PopTopPresenter(HomeDataCall view) {
         super(view);
     }
 

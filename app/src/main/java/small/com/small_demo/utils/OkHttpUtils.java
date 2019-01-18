@@ -78,11 +78,12 @@ public class OkHttpUtils {
     }
 
     //异步put请求
-    public void goPut(String url, Map<String, String> map, final IOKHttpUtilsCallBack
+    public void goPut(String url, final IOKHttpUtilsCallBack
             iokHttpUtilsCallBack) {
         FormBody builder = new FormBody.Builder().build();
         Request request = new Request.Builder()
                 .url(url)
+//                .addHeader("", )
                 .put(builder)
                 .build();
         Call call = httpClient.newCall(request);
