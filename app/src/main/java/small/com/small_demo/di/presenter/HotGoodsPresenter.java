@@ -3,18 +3,17 @@ package small.com.small_demo.di.presenter;
 import javax.inject.Inject;
 
 import small.com.small_demo.bean.HomeGoodsBean;
-import small.com.small_demo.compontent.DaggerHotGoodsCompontent;
-import small.com.small_demo.di.core.DataCall;
-import small.com.small_demo.di.model.HomeBannerModel;
+import small.com.small_demo.di.core.HomeDataCall;
 import small.com.small_demo.di.model.HotGoodsModel;
-import small.com.small_demo.module.HotGoodsModule;
+import small.com.small_demo.removecoupling.compontent.DaggerHotGoodsCompontent;
+import small.com.small_demo.removecoupling.module.HotGoodsModule;
 
-public class HotGoodsPresenter extends BasePresenter<DataCall> {
+public class HotGoodsPresenter extends BasePresenter<HomeDataCall> {
 
     @Inject
     HotGoodsModel hotGoodsModel;
 
-    public HotGoodsPresenter(DataCall view) {
+    public HotGoodsPresenter(HomeDataCall view) {
         super(view);
     }
 

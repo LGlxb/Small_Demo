@@ -1,21 +1,19 @@
 package small.com.small_demo.di.presenter;
 
-import java.util.Map;
-
 import javax.inject.Inject;
 
 import small.com.small_demo.bean.HomeBannerBean;
-import small.com.small_demo.compontent.DaggerHomeBannerCompontent;
-import small.com.small_demo.di.core.DataCall;
+import small.com.small_demo.di.core.HomeDataCall;
 import small.com.small_demo.di.model.HomeBannerModel;
-import small.com.small_demo.module.HomeBannerModule;
+import small.com.small_demo.removecoupling.compontent.DaggerHomeBannerCompontent;
+import small.com.small_demo.removecoupling.module.HomeBannerModule;
 
-public class HomeBannerPresenter extends BasePresenter<DataCall> {
+public class HomeBannerPresenter extends BasePresenter<HomeDataCall> {
     @Inject
     HomeBannerModel homeBannerModel;
 
 
-    public HomeBannerPresenter(DataCall view) {
+    public HomeBannerPresenter(HomeDataCall view) {
         super(view);
     }
 

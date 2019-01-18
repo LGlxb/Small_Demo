@@ -1,10 +1,10 @@
-package small.com.small_demo.compontent;
+package small.com.small_demo.removecoupling.compontent;
 
 
 
 import dagger.Component;
 import small.com.small_demo.di.presenter.LoginPresenter;
-import small.com.small_demo.module.LoginModule;
+import small.com.small_demo.removecoupling.module.LoginModule;
 
 @Component(modules = LoginModule.class)//提供
 public abstract class LoginCompontent {

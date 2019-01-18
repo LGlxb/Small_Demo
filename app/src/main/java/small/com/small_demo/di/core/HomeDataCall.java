@@ -8,7 +8,7 @@ import small.com.small_demo.bean.PopButtomBean;
 import small.com.small_demo.bean.PopTopBean;
 import small.com.small_demo.bean.RegisterBean;
 
-public interface DataCall extends IView {
+public interface HomeDataCall extends IView {
     //登录
     void onLogin(LoginBean loginBean);
 

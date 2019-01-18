@@ -31,7 +31,8 @@
             android:name="design_highh_in_dp"
             android:value="640" />
 
-        <activity android:name=".ui.activity.SearchActivity"></activity>
+        <activity android:name=".ui.activity.SearchActivity" />
+        <activity android:name=".ui.activity.SearchGoodsActivity"></activity>
     </application>
 
 </manifest>

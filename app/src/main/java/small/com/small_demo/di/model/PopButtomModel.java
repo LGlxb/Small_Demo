@@ -9,7 +9,7 @@ import small.com.small_demo.utils.OkHttpUtils;
 public class PopButtomModel {
     public void popTopRecy(String firstCategoryId, final ButtomModelCallBack buttomModelCallBack) {
 
-        String Login_Url = "http://mobile.bwstudent.com/small/commodity/v1/findFirstCategory" +
+        String Login_Url = "http://mobile.bwstudent.com/small/commodity/v1/findSecondCategory" +
                 "?firstCategoryId=" + firstCategoryId;
         OkHttpUtils okHttpUtils = OkHttpUtils.getOkHttpUtils();
         okHttpUtils.doGet(Login_Url, new OkHttpUtils.IOKHttpUtilsCallBack() {

@@ -3,19 +3,17 @@ package small.com.small_demo.di.presenter;
 import javax.inject.Inject;
 
 import small.com.small_demo.bean.PopButtomBean;
-import small.com.small_demo.compontent.DaggerPopButtomCompontent;
-import small.com.small_demo.di.core.DataCall;
+import small.com.small_demo.di.core.HomeDataCall;
 import small.com.small_demo.di.model.PopButtomModel;
-import small.com.small_demo.di.model.PopTopModel;
-import small.com.small_demo.module.PopButtomModule;
-import small.com.small_demo.module.PopTopModule;
+import small.com.small_demo.removecoupling.compontent.DaggerPopButtomCompontent;
+import small.com.small_demo.removecoupling.module.PopButtomModule;
 
-public class PopButtomPresenter extends BasePresenter<DataCall> {
+public class PopButtomPresenter extends BasePresenter<HomeDataCall> {
     @Inject
     PopButtomModel popButtomModel;
 
 
-    public PopButtomPresenter(DataCall view) {
+    public PopButtomPresenter(HomeDataCall view) {
         super(view);
     }
 

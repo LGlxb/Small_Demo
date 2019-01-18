@@ -12,11 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:minHeight="150dp" />
+        <!--<com.facebook.drawee.view.SimpleDraweeView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:adjustViewBounds="true"-->
+        <!--android:minHeight="@dimen/dp_150"-->
+        <!--android:src="@drawable/my_icon_information_n" />-->
 
         <ScrollView
             android:layout_width="match_parent"
@@ -32,32 +33,32 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="160dp"
+                    android:layout_marginTop="@dimen/dp_150"
                     android:background="@drawable/shape_bg_my"
                     android:orientation="vertical"
-                    android:paddingBottom="50dp">
+                    android:paddingBottom="@dimen/dp_50">
 
                     <TextView
                         android:id="@+id/my_nick_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="60dp"
+                        android:layout_marginTop="@dimen/dp_60"
                         android:gravity="center"
                         android:text="名字"
                         android:textColor="#666666"
-                        android:textSize="14sp" />
+                        android:textSize="@dimen/sp_14" />
 
                     <RelativeLayout
                         android:id="@+id/my_info"
                         android:layout_width="match_parent"
-                        android:layout_height="24dp"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginTop="70dp"
-                        android:layout_marginRight="24dp">
+                        android:layout_height="@dimen/dp_24"
+                        android:layout_marginLeft="@dimen/dp_24"
+                        android:layout_marginTop="@dimen/dp_50"
+                        android:layout_marginRight="@dimen/dp_24">
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
+                            android:layout_width="@dimen/dp_24"
+                            android:layout_height="@dimen/dp_24"
                             android:layout_alignParentLeft="true"
                             android:src="@drawable/my_icon_information_n" />
 
@@ -66,17 +67,17 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
                             android:layout_centerVertical="true"
-                            android:layout_marginLeft="44dp"
+                            android:layout_marginLeft="@dimen/dp_44"
                             android:text="个人资料"
                             android:textColor="#666666"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/sp_14" />
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentBottom="true"
-                            android:layout_marginLeft="44dp"
+                            android:layout_marginLeft="@dimen/dp_44"
                             android:background="#ededed" />
 
                     </RelativeLayout>
@@ -84,14 +85,14 @@
                     <RelativeLayout
                         android:id="@+id/my_circle"
                         android:layout_width="match_parent"
-                        android:layout_height="24dp"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginTop="25dp"
-                        android:layout_marginRight="24dp">
+                        android:layout_height="@dimen/dp_24"
+                        android:layout_marginLeft="@dimen/dp_24"
+                        android:layout_marginTop="@dimen/dp_30"
+                        android:layout_marginRight="@dimen/dp_24">
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
+                            android:layout_width="@dimen/dp_24"
+                            android:layout_height="@dimen/dp_24"
                             android:layout_alignParentLeft="true"
                             android:src="@drawable/my_icon_circle_n" />
 
@@ -100,17 +101,17 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
                             android:layout_centerVertical="true"
-                            android:layout_marginLeft="44dp"
+                            android:layout_marginLeft="@dimen/dp_44"
                             android:text="我的圈子"
                             android:textColor="#666666"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/sp_14" />
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentBottom="true"
-                            android:layout_marginLeft="44dp"
+                            android:layout_marginLeft="@dimen/dp_44"
                             android:background="#ededed" />
 
                     </RelativeLayout>
@@ -118,14 +119,14 @@
                     <RelativeLayout
                         android:id="@+id/my_foot"
                         android:layout_width="match_parent"
-                        android:layout_height="24dp"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginTop="25dp"
-                        android:layout_marginRight="24dp">
+                        android:layout_height="@dimen/dp_24"
+                        android:layout_marginLeft="@dimen/dp_24"
+                        android:layout_marginTop="@dimen/dp_30"
+                        android:layout_marginRight="@dimen/dp_24">
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
+                            android:layout_width="@dimen/dp_24"
+                            android:layout_height="@dimen/dp_24"
                             android:layout_alignParentLeft="true"
                             android:src="@drawable/my_icon_foot_n" />
 
@@ -134,17 +135,17 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
                             android:layout_centerVertical="true"
-                            android:layout_marginLeft="44dp"
+                            android:layout_marginLeft="@dimen/dp_44"
                             android:text="我的足迹"
                             android:textColor="#666666"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/sp_14" />
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentBottom="true"
-                            android:layout_marginLeft="44dp"
+                            android:layout_marginLeft="@dimen/dp_44"
                             android:background="#ededed" />
 
                     </RelativeLayout>
@@ -152,14 +153,14 @@
                     <RelativeLayout
                         android:id="@+id/my_wallet"
                         android:layout_width="match_parent"
-                        android:layout_height="24dp"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginTop="25dp"
-                        android:layout_marginRight="24dp">
+                        android:layout_height="@dimen/dp_24"
+                        android:layout_marginLeft="@dimen/dp_24"
+                        android:layout_marginTop="@dimen/dp_30"
+                        android:layout_marginRight="@dimen/dp_24">
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
+                            android:layout_width="@dimen/dp_24"
+                            android:layout_height="@dimen/dp_24"
                             android:layout_alignParentLeft="true"
                             android:src="@drawable/my_icon_wallet_n" />
 
@@ -168,17 +169,17 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
                             android:layout_centerVertical="true"
-                            android:layout_marginLeft="44dp"
+                            android:layout_marginLeft="@dimen/dp_44"
                             android:text="我的钱包"
                             android:textColor="#666666"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/sp_14" />
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentBottom="true"
-                            android:layout_marginLeft="44dp"
+                            android:layout_marginLeft="@dimen/dp_44"
                             android:background="#ededed" />
 
                     </RelativeLayout>
@@ -186,14 +187,14 @@
                     <RelativeLayout
                         android:id="@+id/my_address"
                         android:layout_width="match_parent"
-                        android:layout_height="24dp"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginTop="25dp"
-                        android:layout_marginRight="24dp">
+                        android:layout_height="@dimen/dp_24"
+                        android:layout_marginLeft="@dimen/dp_24"
+                        android:layout_marginTop="@dimen/dp_30"
+                        android:layout_marginRight="@dimen/dp_24">
 
                         <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
+                            android:layout_width="@dimen/dp_24"
+                            android:layout_height="@dimen/dp_24"
                             android:layout_alignParentLeft="true"
                             android:src="@drawable/my_icon_address_n" />
 
@@ -202,91 +203,47 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
                             android:layout_centerVertical="true"
-                            android:layout_marginLeft="44dp"
+                            android:layout_marginLeft="@dimen/dp_44"
                             android:text="我的收货地址"
                             android:textColor="#666666"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/sp_14" />
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentBottom="true"
-                            android:layout_marginLeft="44dp"
+                            android:layout_marginLeft="@dimen/dp_44"
                             android:background="#ededed" />
 
                     </RelativeLayout>
 
                     <Button
                         android:id="@+id/my_login_out"
-                        android:layout_width="100dp"
-                        android:layout_height="40dp"
+                        android:layout_width="@dimen/dp_100"
+                        android:layout_height="@dimen/dp_40"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="@dimen/dp_20"
                         android:background="@drawable/shape_bg_order_pay"
                         android:text="退出登录"
                         android:textColor="#fff"
-                        android:textSize="14sp" />
+                        android:textSize="@dimen/sp_14" />
 
                 </LinearLayout>
 
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:id="@+id/my_avatar"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/dp_80"
+                    android:layout_height="@dimen/dp_80"
                     android:layout_alignTop="@+id/line1"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="-40dp"
+                    android:src="@drawable/appicon1"
                     fresco:roundAsCircle="true" />
 
             </RelativeLayout>
         </ScrollView>
 
     </RelativeLayout>
-
-
-    <!--<RelativeLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:background="@drawable/bg_my"-->
-    <!--android:clipChildren="false">-->
-
-    <!--<com.facebook.drawee.view.SimpleDraweeView-->
-    <!--android:id="@+id/me_bg"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:adjustViewBounds="true"-->
-    <!--android:minHeight="150dp" />-->
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_alignParentBottom="true"-->
-    <!--android:layout_marginTop="200dp"-->
-    <!--android:background="@drawable/shape_bg_my">-->
-
-
-    <!--<View-->
-    <!--android:layout_width="0dp"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_weight="1" />-->
-
-
-    <!--<ImageView-->
-    <!--android:id="@+id/my_headPic"-->
-    <!--android:layout_width="80dp"-->
-    <!--android:layout_height="80dp"-->
-    <!--android:layout_marginTop="-30dp"-->
-    <!--android:src="@drawable/bg_my" />-->
-    <!--&lt;!&ndash;fresco:roundAsCircle="true"&ndash;&gt;-->
-    <!--<View-->
-    <!--android:layout_width="0dp"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_weight="1" />-->
-
-
-    <!--</LinearLayout>-->
-    <!--</RelativeLayout>-->
-
 
 </FrameLayout>
