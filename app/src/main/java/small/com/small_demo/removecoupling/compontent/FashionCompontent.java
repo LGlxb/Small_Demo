@@ -1,11 +1,8 @@
-package small.com.small_demo.compontent;
+package small.com.small_demo.removecoupling.compontent;
 
 import dagger.Component;
-import small.com.small_demo.di.model.FashionModel;
 import small.com.small_demo.di.presenter.FashionPresenter;
-import small.com.small_demo.di.presenter.HotGoodsPresenter;
-import small.com.small_demo.module.FashionModule;
-import small.com.small_demo.module.HotGoodsModule;
+import small.com.small_demo.removecoupling.module.FashionModule;
 
 @Component(modules = FashionModule.class)//提供
 public abstract class FashionCompontent {

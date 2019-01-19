@@ -4,17 +4,16 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import dagger.Module;
 import small.com.small_demo.bean.RegisterBean;
-import small.com.small_demo.compontent.DaggerRegisterCompontent;
-import small.com.small_demo.di.core.DataCall;
+import small.com.small_demo.di.core.HomeDataCall;
 import small.com.small_demo.di.model.RegisterModel;
-import small.com.small_demo.module.RegisterModule;
+import small.com.small_demo.removecoupling.compontent.DaggerRegisterCompontent;
+import small.com.small_demo.removecoupling.module.RegisterModule;
 
-public class RegisterPresenter extends BasePresenter<DataCall> {
+public class RegisterPresenter extends BasePresenter<HomeDataCall> {
     @Inject
     RegisterModel registerModel;
-    public RegisterPresenter(DataCall view) {
+    public RegisterPresenter(HomeDataCall view) {
         super(view);
     }
     @Override

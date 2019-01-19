@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -26,11 +27,11 @@ import small.com.small_demo.bean.LoginBean;
 import small.com.small_demo.bean.PopButtomBean;
 import small.com.small_demo.bean.PopTopBean;
 import small.com.small_demo.bean.RegisterBean;
-import small.com.small_demo.di.core.DataCall;
+import small.com.small_demo.di.core.HomeDataCall;
 import small.com.small_demo.di.presenter.LoginPresenter;
 import small.com.small_demo.R;
 
-public class LoginActivity extends AppCompatActivity implements DataCall {
+public class LoginActivity extends AppCompatActivity implements HomeDataCall {
 
     @BindView(R.id.img_phone)
     ImageView imgPhone;
@@ -129,6 +130,9 @@ public class LoginActivity extends AppCompatActivity implements DataCall {
     @Override
     public void onLogin(LoginBean loginBean) {
         Toast.makeText(this, "小主,登录成功~", Toast.LENGTH_SHORT).show();
+        Log.d("LoginActivity", "loginBean.getResult().getUserId():" + loginBean.getResult()
+                .getUserId() + "+1++++++++u");
+        Log.d("LoginActivity", loginBean.getResult().getSessionId() + "++1++++s");
         boolean remember = loginCbRembPwd.isChecked();
         SharedPreferences.Editor edit = sharedPreferences.edit();
         //判断是否记住密码

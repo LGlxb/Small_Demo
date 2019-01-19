@@ -12,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,6 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -46,7 +46,7 @@ import small.com.small_demo.bean.LoginBean;
 import small.com.small_demo.bean.PopButtomBean;
 import small.com.small_demo.bean.PopTopBean;
 import small.com.small_demo.bean.RegisterBean;
-import small.com.small_demo.di.core.DataCall;
+import small.com.small_demo.di.core.HomeDataCall;
 import small.com.small_demo.di.presenter.FashionPresenter;
 import small.com.small_demo.di.presenter.HomeBannerPresenter;
 import small.com.small_demo.di.presenter.HotGoodsPresenter;
@@ -55,7 +55,7 @@ import small.com.small_demo.di.presenter.PopTopPresenter;
 import small.com.small_demo.di.presenter.QualityLivePresenter;
 import small.com.small_demo.ui.activity.SearchActivity;
 
-public class Fragment_home extends Fragment implements DataCall {
+public class Fragment_home extends Fragment implements HomeDataCall {
 
     @BindView(R.id.home_img_menu)
     ImageButton homeImgMenu;
@@ -136,14 +136,17 @@ public class Fragment_home extends Fragment implements DataCall {
         switch (view.getId()) {
             case R.id.home_img_menu:
                 Toast.makeText(getActivity(), "点击了menu", Toast.LENGTH_SHORT).show();
-                popview = View.inflate(getActivity(), R.layout.item_pop, null);
-                popupWindow = new PopupWindow(popview, 800, 200,
+                //popview = View.inflate(getActivity(), R.layout.item_pop, null);
+                //TODO popup不弹窗
+                popupWindow = new PopupWindow(popview, 800, 300,
                         true);
                 popupWindow.setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
                 popupWindow.setWidth(WindowManager.LayoutParams.MATCH_PARENT);
                 popupWindow.setOutsideTouchable(true);
                 popupWindow.setBackgroundDrawable(new ColorDrawable(0x000000));
                 popupWindow.showAsDropDown(homeImgMenu);
+                //点击消失
+                popupWindow.setOutsideTouchable(true);
                 break;
             case R.id.home_img_search:
                 startActivity(new Intent(getActivity(), SearchActivity.class));
@@ -182,18 +185,21 @@ public class Fragment_home extends Fragment implements DataCall {
     @Override
     public void onPopRecyOne(PopTopBean popTopBean) {
         List<PopTopBean.ResultBean> result = popTopBean.getResult();
+        Log.d("Fragment_home", result.get(0).getName() + "+++++++++");
         //TopRecy
         RecyclerView topRecy = popview.findViewById(R.id.home_top_recycler);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         topRecy.setLayoutManager(linearLayoutManager);
-        topRecy.setBackgroundColor(0x88000000);
+        topRecy.setBackgroundColor(0x77000000);
         //设置适配器
         PopTopAdapter popTopAdapter = new PopTopAdapter(R.layout.item_top, result);
         popTopAdapter.setitemClick(new PopTopAdapter.ItemClick() {
             @Override
             public void onItem(int data) {
-                int firstCategoryId = data;
+                firstCategoryId = data + "";
+                Log.d("Fragment_home", firstCategoryId + "++++++++++++name00");
+                popButtomPresenter.popTop(firstCategoryId);
             }
         });
         topRecy.setAdapter(popTopAdapter);

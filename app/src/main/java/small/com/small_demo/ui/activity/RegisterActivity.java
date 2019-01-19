@@ -25,10 +25,10 @@ import small.com.small_demo.bean.LoginBean;
 import small.com.small_demo.bean.PopButtomBean;
 import small.com.small_demo.bean.PopTopBean;
 import small.com.small_demo.bean.RegisterBean;
-import small.com.small_demo.di.core.DataCall;
+import small.com.small_demo.di.core.HomeDataCall;
 import small.com.small_demo.di.presenter.RegisterPresenter;
 
-public class RegisterActivity extends AppCompatActivity implements DataCall {
+public class RegisterActivity extends AppCompatActivity implements HomeDataCall {
 
     @BindView(R.id.img_phone)
     ImageView imgPhone;
