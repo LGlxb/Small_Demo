@@ -64,8 +64,6 @@ public class SearchGoodsActivity extends AppCompatActivity implements GoodsDataC
         Intent intent = getIntent();
         keyWords = intent.getStringExtra("keyWords");
         dataName = intent.getStringExtra("dataName");
-        Log.d("SearchGoodsActivity", keyWords + "++++++keywords");
-        Log.d("SearchGoodsActivity", dataName + "+++++++dataname");
         searchText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,10 +73,8 @@ public class SearchGoodsActivity extends AppCompatActivity implements GoodsDataC
         });
         if (dataName != null) {
             searchGoodsPresenter.searchGoods(dataName, page, 10);
-
         } else {
             searchGoodsPresenter.searchGoods(keyWords, page, 10);
-
         }
         //刷新加载
         smartRefrech.setOnRefreshListener(new OnRefreshListener() {
@@ -90,7 +86,11 @@ public class SearchGoodsActivity extends AppCompatActivity implements GoodsDataC
                     @Override
                     public void run() {
                         page = 1;
-                        searchGoodsPresenter.searchGoods(keyWords, page, 10);
+                        if (dataName != null) {
+                            searchGoodsPresenter.searchGoods(dataName, page, 10);
+                        } else {
+                            searchGoodsPresenter.searchGoods(keyWords, page, 10);
+                        }
                         Toast.makeText(SearchGoodsActivity.this, "刷新完成", Toast.LENGTH_SHORT).show();
                     }
                 }, 2000);
@@ -105,7 +105,11 @@ public class SearchGoodsActivity extends AppCompatActivity implements GoodsDataC
                     @Override
                     public void run() {
                         page++;
-                        searchGoodsPresenter.searchGoods(keyWords, page, 10);
+                        if (dataName != null) {
+                            searchGoodsPresenter.searchGoods(dataName, page, 10);
+                        } else {
+                            searchGoodsPresenter.searchGoods(keyWords, page, 10);
+                        }
                         Toast.makeText(SearchGoodsActivity.this, "加载完成", Toast.LENGTH_SHORT).show();
                     }
                 }, 2000);
@@ -125,7 +129,7 @@ public class SearchGoodsActivity extends AppCompatActivity implements GoodsDataC
             //设置适配器
             searchGoodsAdapter = new SearchGoodsAdapter(R.layout
                     .goods_search_key_word_item, result);
-             if (searchGoodsBean.getResult().size() != 0) {
+            if (searchGoodsBean.getResult().size() != 0) {
                 searchGoodsRecy.setAdapter(searchGoodsAdapter);
                 searchB.setVisibility(View.GONE);
                 searchGoodsRecy.setVisibility(View.VISIBLE);

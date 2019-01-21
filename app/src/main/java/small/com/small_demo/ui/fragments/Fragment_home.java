@@ -46,6 +46,8 @@ import small.com.small_demo.bean.LoginBean;
 import small.com.small_demo.bean.PopButtomBean;
 import small.com.small_demo.bean.PopTopBean;
 import small.com.small_demo.bean.RegisterBean;
+import small.com.small_demo.bean.SearchGoodsBean;
+import small.com.small_demo.di.core.GoodsDataCall;
 import small.com.small_demo.di.core.HomeDataCall;
 import small.com.small_demo.di.presenter.FashionPresenter;
 import small.com.small_demo.di.presenter.HomeBannerPresenter;
@@ -53,9 +55,11 @@ import small.com.small_demo.di.presenter.HotGoodsPresenter;
 import small.com.small_demo.di.presenter.PopButtomPresenter;
 import small.com.small_demo.di.presenter.PopTopPresenter;
 import small.com.small_demo.di.presenter.QualityLivePresenter;
+import small.com.small_demo.di.presenter.SearchGoodsPresenter;
 import small.com.small_demo.ui.activity.SearchActivity;
+import small.com.small_demo.ui.activity.SearchGoodsActivity;
 
-public class Fragment_home extends Fragment implements HomeDataCall {
+public class Fragment_home extends Fragment implements HomeDataCall, GoodsDataCall {
 
     @BindView(R.id.home_img_menu)
     ImageButton homeImgMenu;
@@ -88,6 +92,7 @@ public class Fragment_home extends Fragment implements HomeDataCall {
     private String firstCategoryId = "1001002";
     private View popview;
     private PopupWindow popupWindow;
+    private SearchGoodsPresenter searchGoodsPresenter;
 
     @Nullable
     @Override
@@ -109,6 +114,7 @@ public class Fragment_home extends Fragment implements HomeDataCall {
         popTopPresenter.popTop();
         popButtomPresenter = new PopButtomPresenter(this);
         popButtomPresenter.popTop(firstCategoryId);
+        searchGoodsPresenter = new SearchGoodsPresenter(this);
         return homeView;
     }
 
@@ -136,7 +142,6 @@ public class Fragment_home extends Fragment implements HomeDataCall {
         switch (view.getId()) {
             case R.id.home_img_menu:
                 Toast.makeText(getActivity(), "点击了menu", Toast.LENGTH_SHORT).show();
-                //popview = View.inflate(getActivity(), R.layout.item_pop, null);
                 //TODO popup不弹窗
                 popupWindow = new PopupWindow(popview, 800, 300,
                         true);
@@ -155,6 +160,16 @@ public class Fragment_home extends Fragment implements HomeDataCall {
                 startActivity(new Intent(getActivity(), SearchActivity.class));
                 break;
         }
+    }
+
+    @Override
+    public void onShowSearchGoods(SearchGoodsBean searchGoodsBean) {
+//        searchGoodsPresenter.searchGoods(, , );
+    }
+
+    @Override
+    public void onShowFailure(String error) {
+
     }
 
     //轮播图
@@ -198,7 +213,6 @@ public class Fragment_home extends Fragment implements HomeDataCall {
             @Override
             public void onItem(int data) {
                 firstCategoryId = data + "";
-                Log.d("Fragment_home", firstCategoryId + "++++++++++++name00");
                 popButtomPresenter.popTop(firstCategoryId);
             }
         });
@@ -218,6 +232,14 @@ public class Fragment_home extends Fragment implements HomeDataCall {
         //设置适配器
         PopButtomAdapter popButtomAdapter = new PopButtomAdapter(R.layout.item_botton, result);
         bottonRecycler.setAdapter(popButtomAdapter);
+        popButtomAdapter.setitemClick(new PopButtomAdapter.ItemClick() {
+            @Override
+            public void onItem(String data) {
+                Intent intent = new Intent(getActivity(), SearchGoodsActivity.class);
+                intent.putExtra("dataName", data);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

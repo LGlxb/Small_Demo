@@ -117,6 +117,7 @@ public class LoginActivity extends AppCompatActivity implements HomeDataCall {
                 loginEditPwd.setSelection(loginEditPwd.getText().length());
                 break;
             case R.id.btn_login:
+                Toast.makeText(this, "点击了登录唉~", Toast.LENGTH_SHORT).show();
                 loginMobile = loginEditPhone.getText().toString();
                 loginPwd = loginEditPwd.getText().toString();
                 Map<String, String> map = new HashMap<>();
